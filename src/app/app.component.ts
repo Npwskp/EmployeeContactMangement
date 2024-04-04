@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { EmployeeTableComponent } from './employee-table/employee-table.component';
 import { CommonModule } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'EmployeeContactMangement';
+
+  constructor() {}
+
+  ngOnInit() {}
 }

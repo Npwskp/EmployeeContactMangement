@@ -9,7 +9,9 @@
         <th>Email</th>
         <th>Phone</th>
         <th>
-          <button class="btn btn-primary">Add Employee</button>
+          <button class="btn btn-primary" (click)="updateEmployee()">
+            Add Employee
+          </button>
         </th>
       </tr>
     </thead>
@@ -22,8 +24,18 @@
         <td>{{ employee.email }}</td>
         <td>{{ employee.phone }}</td>
         <td class="contact-operation">
-          <button class="btn btn-primary operation-button">Edit</button>
-          <button class="btn btn-danger operation-button">Delete</button>
+          <button
+            class="btn btn-primary operation-button"
+            (click)="updateEmployee(employee)"
+          >
+            Edit
+          </button>
+          <button
+            class="btn btn-danger operation-button"
+            (click)="deleteEmployee(employee)"
+          >
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>

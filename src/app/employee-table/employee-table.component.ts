@@ -4,11 +4,12 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateModalComponent } from '../update-modal/update-modal.component';
+import { AddModalComponent } from '../add-modal/add-modal.component';
 
 @Component({
   selector: 'app-employee-table',
   standalone: true,
-  imports: [CommonModule, UpdateModalComponent],
+  imports: [CommonModule, UpdateModalComponent, AddModalComponent],
   templateUrl: './employee-table.component.html',
   styleUrl: './employee-table.component.scss',
 })
@@ -23,12 +24,17 @@ export class EmployeeTableComponent {
   ) {}
 
   fetchEmployee() {
-    this.employeeService
-      .getEmployees()
-      .subscribe((employees) => (this.employees = employees));
+    this.employeeService.getEmployees().subscribe((employees) => {
+      this.employees = employees;
+      console.log(employees);
+    });
   }
 
   ngOnInit() {
+    this.fetchEmployee();
+  }
+
+  ngOnChanges() {
     this.fetchEmployee();
   }
 
@@ -37,10 +43,16 @@ export class EmployeeTableComponent {
     this.fetchEmployee();
   }
 
-  updateEmployee(employee?: Employee) {
+  updateEmployee(employee: Employee) {
     if (employee) {
       this.selectedEmployee = employee;
     }
-    this.modal.open(UpdateModalComponent);
+    const modalRef = this.modal.open(UpdateModalComponent);
+    modalRef.componentInstance.selectedEmployee = this.selectedEmployee;
+  }
+
+  addEmployee() {
+    const modalRef = this.modal.open(AddModalComponent);
+    this.fetchEmployee();
   }
 }

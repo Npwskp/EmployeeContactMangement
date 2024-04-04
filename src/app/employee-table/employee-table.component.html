@@ -1,0 +1,31 @@
+<div class="template">
+  <table class="table table-striped contact-table">
+    <thead class="contact-head">
+      <tr>
+        <th>Employee ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Department</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>
+          <button class="btn btn-primary">Add Employee</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.firstname }}</td>
+        <td>{{ employee.lastname }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.phone }}</td>
+        <td class="contact-operation">
+          <button class="btn btn-primary operation-button">Edit</button>
+          <button class="btn btn-danger operation-button">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

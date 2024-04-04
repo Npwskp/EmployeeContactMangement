@@ -2,7 +2,8 @@ import { NgFor } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Employee } from '../employee';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgModel } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-update-modal',
@@ -16,10 +17,16 @@ export class UpdateModalComponent {
 
   submitted = false;
 
-  constructor(public modal: NgbActiveModal) {}
+  constructor(
+    public modal: NgbActiveModal,
+    private employeeService: EmployeeService
+  ) {}
 
   onSubmit() {
-    this.submitted = true;
-    this.modal.close();
+    const updatedEmployee = this.selectedEmployee;
+    this.employeeService.updateEmployee(updatedEmployee).subscribe(() => {
+      this.submitted = true;
+      this.modal.close();
+    });
   }
 }

@@ -49,10 +49,15 @@ export class EmployeeTableComponent {
     }
     const modalRef = this.modal.open(UpdateModalComponent);
     modalRef.componentInstance.selectedEmployee = this.selectedEmployee;
+    modalRef.result.then(() => {
+      this.fetchEmployee();
+    });
   }
 
   addEmployee() {
     const modalRef = this.modal.open(AddModalComponent);
-    this.fetchEmployee();
+    modalRef.result.then(() => {
+      this.fetchEmployee();
+    });
   }
 }

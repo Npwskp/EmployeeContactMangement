@@ -55,8 +55,9 @@ export class EmployeeTableComponent {
   }
 
   addEmployee() {
+    console.log(this.employees.length);
     const modalRef = this.modal.open(AddModalComponent);
-    modalRef.componentInstance.lastId = this.employees.length;
+    modalRef.componentInstance.lastId = this.employees.length + 1;
     modalRef.result.then(() => {
       this.fetchEmployee();
     });

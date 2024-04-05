@@ -16,13 +16,12 @@ export class AddModalComponent {
   @Input() lastId!: number;
 
   InputEmployee: Employee = {
-    id: this.lastId,
+    id: 0,
     EmployeeName: '',
     Email: '',
     PhoneNumber: '',
     JobTitle: '',
   };
-  @Output() fetchEmployee: EventEmitter<void> = new EventEmitter<void>();
 
   submitted = false;
 
@@ -37,10 +36,5 @@ export class AddModalComponent {
     this.employeeService
       .addEmployee(this.InputEmployee)
       .subscribe(() => this.modal.close());
-    this.fetchEmployees();
-  }
-
-  fetchEmployees() {
-    this.fetchEmployee.emit();
   }
 }

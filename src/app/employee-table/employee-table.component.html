@@ -2,12 +2,11 @@
   <table class="table table-striped contact-table">
     <thead class="contact-head">
       <tr>
-        <th>Employee ID</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Department</th>
+        <th>ID</th>
+        <th>Employee Name</th>
         <th>Email</th>
-        <th>Phone</th>
+        <th>Phone Number</th>
+        <th>Job Title</th>
         <th>
           <button class="btn btn-primary" (click)="addEmployee()">
             Add Employee
@@ -18,11 +17,10 @@
     <tbody>
       <tr *ngFor="let employee of employees">
         <td>{{ employee.id }}</td>
-        <td>{{ employee.firstname }}</td>
-        <td>{{ employee.lastname }}</td>
-        <td>{{ employee.department }}</td>
-        <td>{{ employee.email }}</td>
-        <td>{{ employee.phone }}</td>
+        <td>{{ employee.EmployeeName }}</td>
+        <td>{{ employee.Email }}</td>
+        <td>{{ employee.PhoneNumber }}</td>
+        <td>{{ employee.JobTitle }}</td>
         <td class="contact-operation">
           <button
             class="btn btn-primary operation-button"

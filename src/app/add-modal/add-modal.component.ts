@@ -13,13 +13,14 @@ import { EmployeeService } from '../employee.service';
   styleUrl: './add-modal.component.scss',
 })
 export class AddModalComponent {
+  @Input() lastId!: number;
+
   InputEmployee: Employee = {
-    id: 0,
-    firstname: '',
-    lastname: '',
-    email: '',
-    phone: 0,
-    department: '',
+    id: this.lastId,
+    EmployeeName: '',
+    Email: '',
+    PhoneNumber: '',
+    JobTitle: '',
   };
   @Output() fetchEmployee: EventEmitter<void> = new EventEmitter<void>();
 

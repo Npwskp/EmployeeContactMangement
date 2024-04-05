@@ -13,7 +13,7 @@ import { UpdateModalComponent } from './update-modal/update-modal.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'EmployeeContactMangement';
+  title = 'EmployeeContactManagement';
 
   constructor() {}
 

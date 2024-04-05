@@ -59,7 +59,7 @@ export class EmployeeService {
 
   deleteEmployee(id: number): Observable<Employee> {
     return this.http.delete<Employee>(`${this.baseUrl}/${id}`).pipe(
-      tap((data) => console.log('delete succesful')),
+      tap((data) => console.log('delete successful')),
       catchError(this.handleError<Employee>('deleteEmployee'))
     );
   }

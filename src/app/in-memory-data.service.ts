@@ -10,19 +10,17 @@ export class InMemoryDataService implements InMemoryDbService {
     const employees = [
       {
         id: 1,
-        firstname: 'John',
-        lastname: 'Doe',
-        email: 'asdfghjkl@xyz.com',
-        phone: 1234567890,
-        department: 'IT',
+        EmployeeName: 'John Doe',
+        Email: 'HelloWorld@gmail.com',
+        PhoneNumber: '123-456-7890',
+        JobTitle: 'Software Engineer',
       },
       {
         id: 2,
-        firstname: 'Jane',
-        lastname: 'Doe',
-        email: 'Zxcvbnm@xyz.com',
-        phone: 1234567890,
-        department: 'HR',
+        EmployeeName: 'Jane Doe',
+        Email: 'WorldHello@hotmail.com',
+        PhoneNumber: '098-765-4321',
+        JobTitle: 'Software Engineer',
       },
     ];
     return { employees };
